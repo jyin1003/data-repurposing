@@ -1,0 +1,68 @@
+{
+    "id": "twitter-sentiment-epidemiology",
+    "title": "Sentiment Analysis Using Twitter Data",
+    "authors": [
+        "Qi, Y.",
+        "Shabrina, Z."
+    ],
+    "year": 2023,
+    "dataset_type": [
+        "Social Media",
+        "Healthcare"
+    ],
+    "link": "https://doi.org/10.1007/s13278-023-01030-x",
+    "dataset_schema": [
+        {
+            "label": "Twitter Data",
+            "description": "Tweet text, user ID, timestamp, hashtags, engagement metrics, geolocation (limited subset)."
+        },
+        {
+            "label": "COVID-19 Data",
+            "description": "Cases, deaths, vaccinations, policy timelines."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "Twitter",
+            "description": "Social networking and advertising."
+        },
+        {
+            "label": "COVID Data",
+            "description": "Public health monitoring and policy guidance."
+        }
+    ],
+    "repurposed_use": "Used to analyse public sentiment and behavioural responses to COVID-19 policies.",
+    "limitations": [
+        {
+            "label": "Selection Bias",
+            "description": "Users skew younger, urban, and politically engaged."
+        },
+        {
+            "label": "Information Bias",
+            "description": "Sarcasm, bots, and noise reduce data reliability."
+        },
+        {
+            "label": "Temporal Instability",
+            "description": "Platform changes and moderation affect longitudinal consistency."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "Filtering",
+            "description": "Remove bots and duplicate content."
+        },
+        {
+            "label": "NLP Processing",
+            "description": "Tokenisation, slang normalisation, emoji conversion."
+        },
+        {
+            "label": "Feature Engineering",
+            "description": "Infer geolocation and demographics."
+        },
+        {
+            "label": "Data Integration",
+            "description": "Combine with census and COVID datasets."
+        }
+    ],
+    "notes": "Highlights platform dependency and how governance changes can disrupt data repurposing ecosystems."
+}
