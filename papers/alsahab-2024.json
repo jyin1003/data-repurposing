@@ -1,0 +1,74 @@
+{
+    "id": "ehr-biases-deficiencies",
+    "title": "Biases in Electronic Health Records Data for Generating Real-World Evidence",
+    "authors": [
+        "Al-Sahab, B.",
+        "Leviton, A.",
+        "Loddenkemper, T.",
+        "Paneth, N.",
+        "Zhang, B."
+    ],
+    "year": 2024,
+    "dataset_type": [
+        "Healthcare"
+    ],
+    "link": "https://doi.org/10.1007/s41666-023-00153-2",
+    "dataset_schema": [
+        {
+            "label": "Administrative and Billing Data",
+            "description": "ICD codes, insurance type, billing records."
+        },
+        {
+            "label": "Clinical and Medical Data",
+            "description": "Lab tests (LOINC), SNOMED/CPT codes, vital signs, medications, free-text notes, radiology images."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "Administrative",
+            "description": "Reimbursement, healthcare management, legal documentation."
+        },
+        {
+            "label": "Clinical",
+            "description": "Patient care, medical history documentation, clinical decision-making."
+        }
+    ],
+    "repurposed_use": "Combined as real-world data to generate clinical evidence for research, treatment evaluation, and decision support outside controlled trials.",
+    "limitations": [
+        {
+            "label": "Selection Bias",
+            "description": "Only includes individuals interacting with healthcare systems, excluding underserved populations."
+        },
+        {
+            "label": "Documentation Bias",
+            "description": "Data reflects billing incentives rather than research completeness."
+        },
+        {
+            "label": "Information Bias",
+            "description": "Incomplete histories and misclassification of diseases."
+        },
+        {
+            "label": "Temporal Instability",
+            "description": "Recorded timestamps may not reflect true clinical events."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "NLP Processing",
+            "description": "Extract structured information from clinical notes."
+        },
+        {
+            "label": "Feature Engineering",
+            "description": "Phenotyping using rules or machine learning."
+        },
+        {
+            "label": "Imputation",
+            "description": "Fill missing data values."
+        },
+        {
+            "label": "Data Integration",
+            "description": "Link with social determinants datasets."
+        }
+    ],
+    "notes": "Highlights representational bias where data reflects healthcare system processes rather than underlying clinical reality. :contentReference[oaicite:0]{index=0}"
+}
