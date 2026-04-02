@@ -1,0 +1,65 @@
+{
+    "id": "ml-poverty-mapping",
+    "title": "Poverty Mapping in the Age of Machine Learning",
+    "authors": [
+        "Corral, P.",
+        "Henderson, H.",
+        "Segovia, S."
+    ],
+    "year": 2025,
+    "dataset_type": [
+        "Demographic",
+        "Geospatial"
+    ],
+    "link": "https://doi.org/10.1016/j.jdeveco.2024.103377",
+    "dataset_schema": [
+        {
+            "label": "Census and Survey Data",
+            "description": "Income, assets, housing quality, demographics, geographic identifiers."
+        },
+        {
+            "label": "Remote Sensing Data",
+            "description": "Nighttime lights, vegetation indices, geographic features."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "Census Data",
+            "description": "Government planning and poverty monitoring."
+        },
+        {
+            "label": "Remote Sensing",
+            "description": "Environmental and geographic monitoring."
+        }
+    ],
+    "repurposed_use": "Used to train machine learning models for predicting poverty at fine spatial resolution.",
+    "limitations": [
+        {
+            "label": "Temporal Instability",
+            "description": "Census data outdated relative to real-time satellite data."
+        },
+        {
+            "label": "Selection Bias",
+            "description": "Underperformance in poorest regions due to weak signal."
+        },
+        {
+            "label": "Granularity",
+            "description": "Aggregation mismatches across datasets."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "Data Integration",
+            "description": "Combine survey data with satellite-derived features."
+        },
+        {
+            "label": "Aggregation",
+            "description": "Align datasets to common geographic units."
+        },
+        {
+            "label": "Bias Correction",
+            "description": "Adjust model outputs for systematic underestimation."
+        }
+    ],
+    "notes": "Shows how ML repurposing introduces new forms of bias not captured by traditional metrics."
+}

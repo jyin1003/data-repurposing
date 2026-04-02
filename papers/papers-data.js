@@ -224,6 +224,138 @@ window.PAPERS_DATA = [
     "notes": "Demonstrates how administrative healthcare data can be repurposed for innovation diffusion research. Highlights the need for proxy variables when key constructs are unobserved and the importance of linking multi-level datasets (patient, physician, hospital)."
   },
   {
+    "id": "ml-poverty-mapping",
+    "title": "Poverty Mapping in the Age of Machine Learning",
+    "authors": [
+      "Corral, P.",
+      "Henderson, H.",
+      "Segovia, S."
+    ],
+    "year": 2025,
+    "dataset_type": [
+      "Demographic",
+      "Geospatial"
+    ],
+    "link": "https://doi.org/10.1016/j.jdeveco.2024.103377",
+    "dataset_schema": [
+      {
+        "label": "Census and Survey Data",
+        "description": "Income, assets, housing quality, demographics, geographic identifiers."
+      },
+      {
+        "label": "Remote Sensing Data",
+        "description": "Nighttime lights, vegetation indices, geographic features."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "Census Data",
+        "description": "Government planning and poverty monitoring."
+      },
+      {
+        "label": "Remote Sensing",
+        "description": "Environmental and geographic monitoring."
+      }
+    ],
+    "repurposed_use": "Used to train machine learning models for predicting poverty at fine spatial resolution.",
+    "limitations": [
+      {
+        "label": "Temporal Instability",
+        "description": "Census data outdated relative to real-time satellite data."
+      },
+      {
+        "label": "Selection Bias",
+        "description": "Underperformance in poorest regions due to weak signal."
+      },
+      {
+        "label": "Granularity",
+        "description": "Aggregation mismatches across datasets."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Data Integration",
+        "description": "Combine survey data with satellite-derived features."
+      },
+      {
+        "label": "Aggregation",
+        "description": "Align datasets to common geographic units."
+      },
+      {
+        "label": "Bias Correction",
+        "description": "Adjust model outputs for systematic underestimation."
+      }
+    ],
+    "notes": "Shows how ML repurposing introduces new forms of bias not captured by traditional metrics."
+  },
+  {
+    "id": "algorithmic-fairness-datasets",
+    "title": "Algorithmic Fairness Datasets: The Story So Far",
+    "authors": [
+      "Fabris, A.",
+      "Messina, S.",
+      "Silvello, G.",
+      "Susto, G. A."
+    ],
+    "year": 2022,
+    "dataset_type": [
+      "Demographic",
+      "Criminal Justice",
+      "Machine Learning"
+    ],
+    "link": "https://doi.org/10.1007/s10618-022-00854-z",
+    "dataset_schema": [
+      {
+        "label": "COMPAS Dataset",
+        "description": "Demographics, criminal history, recidivism risk scores."
+      },
+      {
+        "label": "Adult Income Dataset",
+        "description": "Demographic and socioeconomic variables."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "COMPAS",
+        "description": "Risk assessment for judicial decision-making."
+      },
+      {
+        "label": "Adult Dataset",
+        "description": "Census-based statistical analysis."
+      }
+    ],
+    "repurposed_use": "Used as benchmark datasets for evaluating fairness in machine learning algorithms.",
+    "limitations": [
+      {
+        "label": "Construct Validity",
+        "description": "Risk scores and labels embed systemic bias."
+      },
+      {
+        "label": "Information Bias",
+        "description": "Missing values and measurement noise."
+      },
+      {
+        "label": "Transparency",
+        "description": "Lack of clarity around key variables and decision processes."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Filtering",
+        "description": "Clean and preprocess datasets."
+      },
+      {
+        "label": "Reweighting",
+        "description": "Adjust representation across demographic groups."
+      },
+      {
+        "label": "Feature Engineering",
+        "description": "Audit and refine labels."
+      }
+    ],
+    "notes": "Highlights how datasets become standardised benchmarks despite embedded biases."
+  },
+  {
     "id": "medical-technology-abandonment",
     "title": "The When and Why of Abandonment: The Role of Organizational Differences in Medical Technology Life Cycles",
     "authors": [
@@ -353,5 +485,73 @@ window.PAPERS_DATA = [
       }
     ],
     "notes": "Introduces the concept of data 'elasticity': the degree to which data can be stretched to fit new schemas. Distinguishes repurposing (schema change required) from reuse (existing schema sufficient). Identifies actors, enablers, and constraints shaping the repurposing ecosystem."
+  },
+  {
+    "id": "twitter-sentiment-epidemiology",
+    "title": "Sentiment Analysis Using Twitter Data",
+    "authors": [
+      "Qi, Y.",
+      "Shabrina, Z."
+    ],
+    "year": 2023,
+    "dataset_type": [
+      "Social Media",
+      "Healthcare"
+    ],
+    "link": "https://doi.org/10.1007/s13278-023-01030-x",
+    "dataset_schema": [
+      {
+        "label": "Twitter Data",
+        "description": "Tweet text, user ID, timestamp, hashtags, engagement metrics, geolocation (limited subset)."
+      },
+      {
+        "label": "COVID-19 Data",
+        "description": "Cases, deaths, vaccinations, policy timelines."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "Twitter",
+        "description": "Social networking and advertising."
+      },
+      {
+        "label": "COVID Data",
+        "description": "Public health monitoring and policy guidance."
+      }
+    ],
+    "repurposed_use": "Used to analyse public sentiment and behavioural responses to COVID-19 policies.",
+    "limitations": [
+      {
+        "label": "Selection Bias",
+        "description": "Users skew younger, urban, and politically engaged."
+      },
+      {
+        "label": "Information Bias",
+        "description": "Sarcasm, bots, and noise reduce data reliability."
+      },
+      {
+        "label": "Temporal Instability",
+        "description": "Platform changes and moderation affect longitudinal consistency."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Filtering",
+        "description": "Remove bots and duplicate content."
+      },
+      {
+        "label": "NLP Processing",
+        "description": "Tokenisation, slang normalisation, emoji conversion."
+      },
+      {
+        "label": "Feature Engineering",
+        "description": "Infer geolocation and demographics."
+      },
+      {
+        "label": "Data Integration",
+        "description": "Combine with census and COVID datasets."
+      }
+    ],
+    "notes": "Highlights platform dependency and how governance changes can disrupt data repurposing ecosystems."
   }
 ];
