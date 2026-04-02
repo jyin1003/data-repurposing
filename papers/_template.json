@@ -1,0 +1,48 @@
+{
+  "id": "your-paper-slug",
+  "title": "Full Paper Title",
+  "authors": [
+    "Last, F.",
+    "Last, F."
+  ],
+  "year": 2024,
+  "dataset_type": [
+    "dataset_type-one",
+    "dataset_type-two"
+  ],
+  "link": "https://arxiv.org/abs/xxxx.xxxxx",
+  "dataset_schema": [
+    {
+      "label": "dataset 1",
+      "description": "schema"
+    },
+    {
+      "label": "dataset 2",
+      "description": "schema?"
+    }
+  ],
+  "original_intent": [
+    {
+      "label": "dataset 1",
+      "description": "What was the original intent?"
+    },
+    {
+      "label": "dataset 2",
+      "description": "What was the original intent?"
+    }
+  ],
+  "repurposed_use": "What does this paper do and why does it matter? Write 2-4 sentences.",
+  "limitations": [
+    {
+      "label": "Limitation name",
+      "description": "Describe the limitation and its practical impact."
+    }
+  ],
+  "transformations": [
+    {
+      "label": "Method or equation name",
+      "description": "Describe the key operation, equation, or algorithmic step."
+    }
+  ],
+  "notes": "Related papers, personal observations."
+}
