@@ -1,0 +1,68 @@
+{
+    "id": "gps-mobility-epidemic-modeling",
+    "title": "The Potential and Challenges of GPS Mobility Data for Epidemic Modeling",
+    "authors": [
+        "Barreras, F.",
+        "Watts, D. J."
+    ],
+    "year": 2024,
+    "dataset_type": [
+        "Geospatial",
+        "Demographic"
+    ],
+    "link": "https://doi.org/10.1038/s43588-024-00637-0",
+    "dataset_schema": [
+        {
+            "label": "GPS Mobility Data",
+            "description": "Latitude, longitude, timestamps, device ID, dwell time, inferred home location, visit frequency."
+        },
+        {
+            "label": "Demographic Metadata",
+            "description": "Census block group attributes (income, race, education)."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "GPS Data",
+            "description": "Advertising, retail analytics, and consumer behaviour tracking."
+        },
+        {
+            "label": "Census Data",
+            "description": "Population statistics and demographic tracking."
+        }
+    ],
+    "repurposed_use": "Used for COVID-19 modelling, estimating transmission networks, evaluating lockdown policies, and urban mobility analysis.",
+    "limitations": [
+        {
+            "label": "Selection Bias",
+            "description": "Under-representation of low-income and low-smartphone populations."
+        },
+        {
+            "label": "Granularity",
+            "description": "Aggregation to census level removes within-area variation."
+        },
+        {
+            "label": "Privacy and Ethical Risk",
+            "description": "Re-identification risk despite anonymisation."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "Reweighting",
+            "description": "Adjust sample to match population demographics."
+        },
+        {
+            "label": "Validation",
+            "description": "Compare against ground-truth mobility surveys."
+        },
+        {
+            "label": "Feature Engineering",
+            "description": "Infer home locations and visits."
+        },
+        {
+            "label": "Privacy Preservation",
+            "description": "Apply differential privacy techniques."
+        }
+    ],
+    "notes": "Demonstrates how commercial data repurposing introduces structural inequities in public health modelling."
+}
