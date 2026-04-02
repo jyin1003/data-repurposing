@@ -1,0 +1,67 @@
+{
+    "id": "algorithmic-fairness-datasets",
+    "title": "Algorithmic Fairness Datasets: The Story So Far",
+    "authors": [
+        "Fabris, A.",
+        "Messina, S.",
+        "Silvello, G.",
+        "Susto, G. A."
+    ],
+    "year": 2022,
+    "dataset_type": [
+        "Demographic",
+        "Criminal Justice",
+        "Machine Learning"
+    ],
+    "link": "https://doi.org/10.1007/s10618-022-00854-z",
+    "dataset_schema": [
+        {
+            "label": "COMPAS Dataset",
+            "description": "Demographics, criminal history, recidivism risk scores."
+        },
+        {
+            "label": "Adult Income Dataset",
+            "description": "Demographic and socioeconomic variables."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "COMPAS",
+            "description": "Risk assessment for judicial decision-making."
+        },
+        {
+            "label": "Adult Dataset",
+            "description": "Census-based statistical analysis."
+        }
+    ],
+    "repurposed_use": "Used as benchmark datasets for evaluating fairness in machine learning algorithms.",
+    "limitations": [
+        {
+            "label": "Construct Validity",
+            "description": "Risk scores and labels embed systemic bias."
+        },
+        {
+            "label": "Information Bias",
+            "description": "Missing values and measurement noise."
+        },
+        {
+            "label": "Transparency",
+            "description": "Lack of clarity around key variables and decision processes."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "Filtering",
+            "description": "Clean and preprocess datasets."
+        },
+        {
+            "label": "Reweighting",
+            "description": "Adjust representation across demographic groups."
+        },
+        {
+            "label": "Feature Engineering",
+            "description": "Audit and refine labels."
+        }
+    ],
+    "notes": "Highlights how datasets become standardised benchmarks despite embedded biases."
+}
