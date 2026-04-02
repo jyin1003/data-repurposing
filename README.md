@@ -169,8 +169,6 @@ Exit 0 = all valid. Exit 1 = errors found.
 ## Viewer features
 
 - **Search** — searches titles, authors, tags, and all text fields
-- **Tag filter** — click any tag to filter the collection
+- **Filter** — click any tag to filter the collection including `dataset_type`, `limitations` and `transformations`. Note this is an 'OR' filter which will return papers that match ANY of the filters
 - **Sort** — by year (newest/oldest) or title
 - **Expand** — click a card to reveal all sections
-- **Select + Compare** — click the ◎ button on any cards, then hit **Compare →**
-  to open a side-by-side table. Toggle which fields are shown per comparison
