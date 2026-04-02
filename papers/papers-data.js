@@ -2,6 +2,148 @@
 // Run: node generate-manifest.js
 window.PAPERS_DATA = [
   {
+    "id": "ehr-biases-deficiencies",
+    "title": "Biases in Electronic Health Records Data for Generating Real-World Evidence",
+    "authors": [
+      "Al-Sahab, B.",
+      "Leviton, A.",
+      "Loddenkemper, T.",
+      "Paneth, N.",
+      "Zhang, B."
+    ],
+    "year": 2024,
+    "dataset_type": [
+      "Healthcare"
+    ],
+    "link": "https://doi.org/10.1007/s41666-023-00153-2",
+    "dataset_schema": [
+      {
+        "label": "Administrative and Billing Data",
+        "description": "ICD codes, insurance type, billing records."
+      },
+      {
+        "label": "Clinical and Medical Data",
+        "description": "Lab tests (LOINC), SNOMED/CPT codes, vital signs, medications, free-text notes, radiology images."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "Administrative",
+        "description": "Reimbursement, healthcare management, legal documentation."
+      },
+      {
+        "label": "Clinical",
+        "description": "Patient care, medical history documentation, clinical decision-making."
+      }
+    ],
+    "repurposed_use": "Combined as real-world data to generate clinical evidence for research, treatment evaluation, and decision support outside controlled trials.",
+    "limitations": [
+      {
+        "label": "Selection Bias",
+        "description": "Only includes individuals interacting with healthcare systems, excluding underserved populations."
+      },
+      {
+        "label": "Documentation Bias",
+        "description": "Data reflects billing incentives rather than research completeness."
+      },
+      {
+        "label": "Information Bias",
+        "description": "Incomplete histories and misclassification of diseases."
+      },
+      {
+        "label": "Temporal Instability",
+        "description": "Recorded timestamps may not reflect true clinical events."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "NLP Processing",
+        "description": "Extract structured information from clinical notes."
+      },
+      {
+        "label": "Feature Engineering",
+        "description": "Phenotyping using rules or machine learning."
+      },
+      {
+        "label": "Imputation",
+        "description": "Fill missing data values."
+      },
+      {
+        "label": "Data Integration",
+        "description": "Link with social determinants datasets."
+      }
+    ],
+    "notes": "Highlights representational bias where data reflects healthcare system processes rather than underlying clinical reality. :contentReference[oaicite:0]{index=0}"
+  },
+  {
+    "id": "gps-mobility-epidemic-modeling",
+    "title": "The Potential and Challenges of GPS Mobility Data for Epidemic Modeling",
+    "authors": [
+      "Barreras, F.",
+      "Watts, D. J."
+    ],
+    "year": 2024,
+    "dataset_type": [
+      "Geospatial",
+      "Demographic"
+    ],
+    "link": "https://doi.org/10.1038/s43588-024-00637-0",
+    "dataset_schema": [
+      {
+        "label": "GPS Mobility Data",
+        "description": "Latitude, longitude, timestamps, device ID, dwell time, inferred home location, visit frequency."
+      },
+      {
+        "label": "Demographic Metadata",
+        "description": "Census block group attributes (income, race, education)."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "GPS Data",
+        "description": "Advertising, retail analytics, and consumer behaviour tracking."
+      },
+      {
+        "label": "Census Data",
+        "description": "Population statistics and demographic tracking."
+      }
+    ],
+    "repurposed_use": "Used for COVID-19 modelling, estimating transmission networks, evaluating lockdown policies, and urban mobility analysis.",
+    "limitations": [
+      {
+        "label": "Selection Bias",
+        "description": "Under-representation of low-income and low-smartphone populations."
+      },
+      {
+        "label": "Granularity",
+        "description": "Aggregation to census level removes within-area variation."
+      },
+      {
+        "label": "Privacy and Ethical Risk",
+        "description": "Re-identification risk despite anonymisation."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Reweighting",
+        "description": "Adjust sample to match population demographics."
+      },
+      {
+        "label": "Validation",
+        "description": "Compare against ground-truth mobility surveys."
+      },
+      {
+        "label": "Feature Engineering",
+        "description": "Infer home locations and visits."
+      },
+      {
+        "label": "Privacy Preservation",
+        "description": "Apply differential privacy techniques."
+      }
+    ],
+    "notes": "Demonstrates how commercial data repurposing introduces structural inequities in public health modelling."
+  },
+  {
     "id": "diffusion-medical-innovation-stars",
     "title": "The Diffusion of a Medical Innovation: Is Success in the Stars?",
     "authors": [
@@ -82,6 +224,75 @@ window.PAPERS_DATA = [
     "notes": "Demonstrates how administrative healthcare data can be repurposed for innovation diffusion research. Highlights the need for proxy variables when key constructs are unobserved and the importance of linking multi-level datasets (patient, physician, hospital)."
   },
   {
+    "id": "medical-technology-abandonment",
+    "title": "The When and Why of Abandonment: The Role of Organizational Differences in Medical Technology Life Cycles",
+    "authors": [
+      "Greenwood, B. N.",
+      "Agarwal, R.",
+      "Agarwal, R.",
+      "Gopal, A."
+    ],
+    "year": 2017,
+    "dataset_type": [
+      "Healthcare"
+    ],
+    "link": "http://www.jstor.org/stable/45149123",
+    "dataset_schema": [
+      {
+        "label": "AHCA Hospital Discharge Dataset",
+        "description": "Patient demographics, ICD codes, DRG discharge codes, admission/discharge dates, hospital identifiers, physician identifiers, payer type."
+      },
+      {
+        "label": "Hospital Organisational Dataset",
+        "description": "Hospital identity, ownership classification (for-profit, non-profit, academic medical centre), location."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "AHCA",
+        "description": "Billing, compliance, reimbursement tracking, and policy evaluation."
+      },
+      {
+        "label": "Hospital Organisational",
+        "description": "Classify health systems and analyse institutional incentives and regulatory structures."
+      }
+    ],
+    "repurposed_use": "Linked datasets to analyse how organisational incentives influence adoption and abandonment of medical technologies over time.",
+    "limitations": [
+      {
+        "label": "Construct Validity",
+        "description": "Hospital type used as proxy for incentives and culture, oversimplifying organisational differences."
+      },
+      {
+        "label": "Temporal Instability",
+        "description": "Hospital characteristics change over time but are treated as static classifications."
+      },
+      {
+        "label": "Granularity",
+        "description": "Mismatch between granular patient-level data and high-level hospital organisational data."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Temporal Structuring",
+        "description": "Convert cross-sectional data into longitudinal time series aligned with technology introduction periods."
+      },
+      {
+        "label": "Data Integration",
+        "description": "Link patient, hospital, and technology datasets."
+      },
+      {
+        "label": "Feature Engineering",
+        "description": "Derive adoption and abandonment variables from procedure codes."
+      },
+      {
+        "label": "Aggregation",
+        "description": "Aggregate patient-level data to hospital-level metrics (adoption rate, abandonment rate)."
+      }
+    ],
+    "notes": "Illustrates reinterpretation of billing codes as behavioural signals of technology adoption and shift in unit of analysis from patient to organisation."
+  },
+  {
     "id": "understanding-and-improvin-data-repurposing",
     "title": "Understanding and Improving Data Repurposing",
     "authors": [
@@ -92,7 +303,7 @@ window.PAPERS_DATA = [
     ],
     "year": 2026,
     "dataset_type": [
-      "Geospatial Data",
+      "Geospatial",
       "Bird Watching"
     ],
     "link": "https://doi.org/10.25300/MISQ/2025/18361",
