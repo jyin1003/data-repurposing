@@ -1,0 +1,62 @@
+{
+  "id": "understanding-and-improvin-data-repurposing",
+  "title": "Understanding and Improving Data Repurposing",
+  "authors": [
+    "Parsons, J.",
+    "Lukyanenko, R.",
+    "Greenwood, B. N.",
+    "Cooper, C. B."
+  ],
+  "year": 2026,
+  "dataset_type": [
+    "Geospatial Data",
+    "Bird Watching"
+  ],
+  "link": "https://doi.org/10.25300/MISQ/2025/18361",
+  "dataset_schema": [
+    {
+      "label": "Neighbourhood Nestwatch (citizen-generated reports of birds in backyards (citizen-generated reports of birds in backyards))",
+      "description": "location data, observation metadata (species, count, date, location, observer), species data, breeding/nest data, effort metrics (duration, distance, area)."
+    },
+    {
+      "label": "World atlas of artificial night sky brightness",
+      "description": "Ratio to natural brightness, Artificial brightness (μcd/m²), Approximate total brightness (mcd/m²) of 1777m resolution, Anthropogenic noise data of expected sound pressures of 270m resolution"
+    }
+  ],
+  "original_intent": [
+    {
+      "label": "Neighbourhood Nestwatch",
+      "description": "Bird population monitoring, environmental engagement"
+    },
+    {
+      "label": "World atlas",
+      "description": "systematically quantify and map global light pollution levels to support scientific research and understand the environmental and societal impacts of artificial night sky brightness."
+    }
+  ],
+  "repurposed_use": "Repurposed during COVID-19 lockdowns to study the effect of reduced human activity and light pollution on songbird physiological health by augmenting with geospatial light/noise datasets.",
+  "limitations": [
+    {
+      "label": "Geographic Coverage",
+      "description": "Uneven between datasets."
+    },
+    {
+      "label": "Intra-data Inconsistenty",
+      "description": "Data collected with inconsistent effort across participants."
+    },
+    {
+      "label": "Granularity",
+      "description": "Data could only match the coarsest resolution, leading to loss of potentially valuable information."
+    }
+  ],
+  "transformations": [
+    {
+      "label": "Join",
+      "description": "Geospatial light pollution maps, noise pollution layers, land cover datasets"
+    },
+    {
+      "label": "Normalisation",
+      "description": "Detection efforts"
+    }
+  ],
+  "notes": "Introduces the concept of data 'elasticity': the degree to which data can be stretched to fit new schemas. Distinguishes repurposing (schema change required) from reuse (existing schema sufficient). Identifies actors, enablers, and constraints shaping the repurposing ecosystem."
+}
