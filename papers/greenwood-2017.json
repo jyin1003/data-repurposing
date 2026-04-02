@@ -1,0 +1,69 @@
+{
+    "id": "medical-technology-abandonment",
+    "title": "The When and Why of Abandonment: The Role of Organizational Differences in Medical Technology Life Cycles",
+    "authors": [
+        "Greenwood, B. N.",
+        "Agarwal, R.",
+        "Agarwal, R.",
+        "Gopal, A."
+    ],
+    "year": 2017,
+    "dataset_type": [
+        "Healthcare"
+    ],
+    "link": "http://www.jstor.org/stable/45149123",
+    "dataset_schema": [
+        {
+            "label": "AHCA Hospital Discharge Dataset",
+            "description": "Patient demographics, ICD codes, DRG discharge codes, admission/discharge dates, hospital identifiers, physician identifiers, payer type."
+        },
+        {
+            "label": "Hospital Organisational Dataset",
+            "description": "Hospital identity, ownership classification (for-profit, non-profit, academic medical centre), location."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "AHCA",
+            "description": "Billing, compliance, reimbursement tracking, and policy evaluation."
+        },
+        {
+            "label": "Hospital Organisational",
+            "description": "Classify health systems and analyse institutional incentives and regulatory structures."
+        }
+    ],
+    "repurposed_use": "Linked datasets to analyse how organisational incentives influence adoption and abandonment of medical technologies over time.",
+    "limitations": [
+        {
+            "label": "Construct Validity",
+            "description": "Hospital type used as proxy for incentives and culture, oversimplifying organisational differences."
+        },
+        {
+            "label": "Temporal Instability",
+            "description": "Hospital characteristics change over time but are treated as static classifications."
+        },
+        {
+            "label": "Granularity",
+            "description": "Mismatch between granular patient-level data and high-level hospital organisational data."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "Temporal Structuring",
+            "description": "Convert cross-sectional data into longitudinal time series aligned with technology introduction periods."
+        },
+        {
+            "label": "Data Integration",
+            "description": "Link patient, hospital, and technology datasets."
+        },
+        {
+            "label": "Feature Engineering",
+            "description": "Derive adoption and abandonment variables from procedure codes."
+        },
+        {
+            "label": "Aggregation",
+            "description": "Aggregate patient-level data to hospital-level metrics (adoption rate, abandonment rate)."
+        }
+    ],
+    "notes": "Illustrates reinterpretation of billing codes as behavioural signals of technology adoption and shift in unit of analysis from patient to organisation."
+}
