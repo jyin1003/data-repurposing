@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Research Paper Collection</title>
+  <title>Repurposed Dataset Collection</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
@@ -67,7 +67,7 @@
       font-style: italic;
     }
 
-    .paper-count {
+    .dataset-count {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--muted);
@@ -298,14 +298,14 @@
       padding: 1.75rem 3rem 4rem;
     }
 
-    #papers-grid {
+    #datasets-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       gap: 1rem;
     }
 
-    /* ── Paper card ── */
-    .paper-card {
+    /* ── Dataset card ── */
+    .dataset-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 10px;
@@ -329,12 +329,12 @@
       }
     }
 
-    .paper-card:hover {
+    .dataset-card:hover {
       border-color: var(--border);
       transform: translateY(-2px);
     }
 
-    .paper-card.selected {
+    .dataset-card.selected {
       border-color: var(--select-ring) !important;
       box-shadow: 0 0 0 1px var(--select-ring);
     }
@@ -359,7 +359,7 @@
       color: transparent;
     }
 
-    .paper-card.selected .select-toggle {
+    .dataset-card.selected .select-toggle {
       background: var(--accent);
       border-color: var(--accent);
       color: #0d0d0f;
@@ -531,7 +531,7 @@
       display: inline-block;
     }
 
-    .paper-link {
+    .dataset-link {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
       color: var(--accent);
@@ -540,7 +540,7 @@
       transition: opacity 0.15s;
     }
 
-    .paper-link:hover {
+    .dataset-link:hover {
       opacity: 0.75;
     }
 
@@ -693,7 +693,7 @@
       border-right: 1px solid var(--border);
     }
 
-    .compare-table td.paper-cell {
+    .compare-table td.dataset-cell {
       font-size: 0.845rem;
       color: #b8b6b0;
       line-height: 1.72;
@@ -701,7 +701,7 @@
       max-width: 380px;
     }
 
-    .compare-table td.paper-cell.meta-cell {
+    .compare-table td.dataset-cell.meta-cell {
       color: var(--text);
       font-weight: 400;
     }
@@ -714,7 +714,7 @@
       background: var(--surface2) !important;
     }
 
-    .paper-col-header {
+    .dataset-col-header {
       font-family: 'Playfair Display', serif;
       font-size: 0.85rem;
       font-weight: 600;
@@ -724,7 +724,7 @@
       font-style: normal;
     }
 
-    .paper-col-sub {
+    .dataset-col-sub {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
       color: var(--muted);
@@ -763,7 +763,7 @@
         padding-right: 1.25rem;
       }
 
-      #papers-grid {
+      #datasets-grid {
         grid-template-columns: 1fr;
       }
 
@@ -778,8 +778,8 @@
 
   <header>
     <div class="header-left">
-      <h1>Research <span>Papers</span></h1>
-      <p class="paper-count" id="count-label">Loading…</p>
+      <h1>Repurposed <span>Datasets</span></h1>
+      <p class="dataset-count" id="count-label">Loading…</p>
     </div>
     <div class="controls">
       <div class="search-wrap">
@@ -787,7 +787,7 @@
           <circle cx="11" cy="11" r="8" />
           <path d="m21 21-4.35-4.35" />
         </svg>
-        <input type="text" id="search" placeholder="Search papers…">
+        <input type="text" id="search" placeholder="Search datasets…">
       </div>
       <select id="sort">
         <option value="year-desc">Newest first</option>
@@ -822,19 +822,19 @@
     </div>
   </div>
 
-  <!-- Paper grid -->
+  <!-- Dataset grid -->
   <main id="main-view">
-    <div id="papers-grid"></div>
+    <div id="datasets-grid"></div>
     <div id="empty">
-      <h3>No papers found</h3>
-      <p>Try a different search or tag filter.</p>
+      <h3>No datasets found</h3>
+      <p>Try a different search or filter.</p>
     </div>
   </main>
 
   <!-- Compare view -->
   <div id="compare-view">
     <div class="compare-header-row">
-      <h2>Comparing <span id="compare-count">0</span> papers</h2>
+      <h2>Comparing <span id="compare-count">0</span> datasets</h2>
       <button class="back-btn" onclick="closeCompareView()">← Back to collection</button>
     </div>
 
@@ -850,16 +850,16 @@
     </div>
   </div>
 
-  <script src="papers/papers-data.js"></script>
+  <script src="datasets/datasets-data.js"></script>
   <script>
     // ── Config ────────────────────────────────────────────────────────────
     const FIELDS = [
       { key: 'description', label: 'Description', type: 'text' },
-      { key: 'dataset_schema', label: 'Dataset and Schema', type: 'table' },
       { key: 'original_intent', label: 'Original Intent', type: 'table' },
-      { key: 'repurposed_use', label: 'Repurposed Use', type: 'text' },
-      { key: 'limitations', label: 'Limitations', type: 'table' },
       { key: 'transformations', label: 'Transformations', type: 'table' },
+      { key: 'schema', label: 'Schema', type: 'table' },
+      { key: 'limitations', label: 'Limitations', type: 'table' },
+      { key: 'key_contributions', label: 'Key Contributions', type: 'text' },
       { key: 'notes', label: 'Notes', type: 'text' },
     ];
 
@@ -870,7 +870,7 @@
     ];
 
     // ── State ─────────────────────────────────────────────────────────────
-    let papers = [];
+    let datasets = [];
     // activeFilters: set of values currently selected per category
     const activeFilters = {
       dataset_type: new Set(),
@@ -881,17 +881,17 @@
     let selectedIds = new Set();
     let activeCompareFields = new Set([...META_FIELDS.map(f => f.key), ...FIELDS.map(f => f.key)]);
 
-    // ── Load papers ───────────────────────────────────────────────────────
-    // papers/papers-data.js is loaded via <script> tag and sets window.PAPERS_DATA.
+    // ── Load datasets ───────────────────────────────────────────────────────
+    // datasets/datasets-data.js is loaded via <script> tag and sets window.DATASETS_DATA.
     // This works when opening index.html directly in any browser — no server needed.
-    // Regenerate it whenever you add/remove a paper: node generate-manifest.js
-    function loadPapers() {
-      if (window.PAPERS_DATA && window.PAPERS_DATA.length) {
-        papers = window.PAPERS_DATA;
+    // Regenerate it whenever you add/remove a dataset: node generate-manifest.js
+    function loadDatasets() {
+      if (window.DATASETS_DATA && window.DATASETS_DATA.length) {
+        datasets = window.DATASETS_DATA;
       } else {
         document.getElementById('count-label').textContent = 'run: node generate-manifest.js';
-        console.error('PAPERS_DATA not found. Run: node generate-manifest.js');
-        papers = [];
+        console.error('DATASETS_DATA not found. Run: node generate-manifest.js');
+        datasets = [];
       }
       render();
     }
@@ -905,7 +905,7 @@
       const f_tr = activeFilters.transformations;
       const anyFilters = f_dt.size || f_lim.size || f_tr.size;
 
-      let list = papers.filter(p => {
+      let list = datasets.filter(p => {
         // ── Filter logic: OR across all three categories ──
         if (anyFilters) {
           const matchDT = f_dt.size && (p.dataset_type || []).some(t => f_dt.has(t.toLowerCase()));
@@ -938,18 +938,18 @@
       renderCards(list);
       updateCompareBar();
 
-      const total = papers.length;
+      const total = datasets.length;
       document.getElementById('count-label').textContent =
-        `${list.length} of ${total} paper${total !== 1 ? 's' : ''}`;
+        `${list.length} of ${total} dataset${total !== 1 ? 's' : ''}`;
     }
 
     function renderFilterBar() {
       // dataset_type — from array of strings
-      const dtVals = [...new Set(papers.flatMap(p => (p.dataset_type || []).map(t => t.toLowerCase())))].sort();
+      const dtVals = [...new Set(datasets.flatMap(p => (p.dataset_type || []).map(t => t.toLowerCase())))].sort();
       // limitations labels
-      const limVals = [...new Set(papers.flatMap(p => (p.limitations || []).map(item => item.label.toLowerCase())))].sort();
+      const limVals = [...new Set(datasets.flatMap(p => (p.limitations || []).map(item => item.label.toLowerCase())))].sort();
       // transformations labels
-      const trVals = [...new Set(papers.flatMap(p => (p.transformations || []).map(item => item.label.toLowerCase())))].sort();
+      const trVals = [...new Set(datasets.flatMap(p => (p.transformations || []).map(item => item.label.toLowerCase())))].sort();
 
       function pillsHtml(vals, category) {
         return vals.map(v => {
@@ -964,7 +964,7 @@
     }
 
     function renderCards(list) {
-      const grid = document.getElementById('papers-grid');
+      const grid = document.getElementById('datasets-grid');
       const empty = document.getElementById('empty');
       if (!list.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
       empty.style.display = 'none';
@@ -994,11 +994,11 @@
 
         const datasetTypes = (p.dataset_type || []).map(t => `<span class="dataset-type-pill">${escHtml(t)}</span>`).join('');
         const link = p.link
-          ? `<a class="paper-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">paper →</a>`
+          ? `<a class="dataset-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">source →</a>`
           : '<span></span>';
 
         return `
-      <div class="paper-card${isSelected ? ' selected' : ''}" id="card-${p.id}" style="animation-delay:${i * 0.035}s">
+      <div class="dataset-card${isSelected ? ' selected' : ''}" id="card-${p.id}" style="animation-delay:${i * 0.035}s">
         <div class="select-toggle" onclick="toggleSelect('${p.id}')" title="Select for comparison">✓</div>
         <div class="card-header" onclick="toggleCard(this)">
           <div class="card-meta">
@@ -1006,12 +1006,12 @@
             ${p.venue ? `<span class="venue-badge">${escHtml(p.venue)}</span>` : ''}
           </div>
           <div class="card-title">${escHtml(p.title)}</div>
-          <div class="card-authors">${(p.authors || []).join(', ')}</div>
+          ${(p.authors || []).length ? `<div class="card-authors">${(p.authors || []).join(', ')}</div>` : ''}
         </div>
         ${datasetTypes ? `<div class="card-dataset-types">${datasetTypes}</div>` : ''}
         <div class="card-sections">${sections}</div>
         <div class="card-footer">
-          <div class="expand-hint" onclick="toggleCard(this.closest('.paper-card').querySelector('.card-header'))">
+          <div class="expand-hint" onclick="toggleCard(this.closest('.dataset-card').querySelector('.card-header'))">
             <span class="expand-arrow">▾</span>
             <span class="expand-text">expand</span>
           </div>
@@ -1022,7 +1022,7 @@
     }
 
     function toggleCard(header) {
-      const card = header.closest('.paper-card');
+      const card = header.closest('.dataset-card');
       const sections = card.querySelector('.card-sections');
       const hint = card.querySelector('.expand-text');
       const arrow = card.querySelector('.expand-arrow');
@@ -1042,7 +1042,7 @@
 
     function clearSelection() {
       selectedIds.clear();
-      document.querySelectorAll('.paper-card.selected').forEach(c => c.classList.remove('selected'));
+      document.querySelectorAll('.dataset-card.selected').forEach(c => c.classList.remove('selected'));
       updateCompareBar();
     }
 
@@ -1053,7 +1053,7 @@
       bar.classList.add('visible');
 
       pills.innerHTML = [...selectedIds].map(id => {
-        const p = papers.find(x => x.id === id);
+        const p = datasets.find(x => x.id === id);
         if (!p) return '';
         const short = p.title.length > 40 ? p.title.slice(0, 38) + '…' : p.title;
         return `<span class="selected-pill">${escHtml(short)}
@@ -1140,27 +1140,27 @@
     }
 
     function buildCompareTable() {
-      const selectedPapers = [...selectedIds].map(id => papers.find(p => p.id === id)).filter(Boolean);
+      const selectedDatasets = [...selectedIds].map(id => datasets.find(p => p.id === id)).filter(Boolean);
       const table = document.getElementById('compare-table');
       const allF = [...META_FIELDS, ...FIELDS].filter(f => activeCompareFields.has(f.key));
 
-      // Header row: field col + one col per paper
+      // Header row: field col + one col per dataset
       let html = `<thead><tr>
     <th class="field-col">Field</th>
-    ${selectedPapers.map(p => `
+    ${selectedDatasets.map(p => `
       <th>
-        <span class="paper-col-header">${escHtml(truncate(p.title, 50))}</span>
-        <span class="paper-col-sub">${p.year || ''}${p.year && p.venue ? ' · ' : ''}${p.venue || ''}</span>
+        <span class="dataset-col-header">${escHtml(truncate(p.title, 50))}</span>
+        <span class="dataset-col-sub">${p.year || ''}${p.year && p.venue ? ' · ' : ''}${p.venue || ''}</span>
       </th>`).join('')}
   </tr></thead><tbody>`;
 
       allF.forEach(f => {
         html += `<tr><td class="field-name">${f.label}</td>`;
-        selectedPapers.forEach(p => {
+        selectedDatasets.forEach(p => {
           let val = '';
           if (f.key === '_authors') val = (p.authors || []).join(', ') || '—';
           else if (f.key === '_dataset_type') val = (p.dataset_type || []).join(', ') || '—';
-          else if (f.key === '_link') val = p.link ? `<a class="paper-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">${escHtml(p.link)}</a>` : '—';
+          else if (f.key === '_link') val = p.link ? `<a class="dataset-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">${escHtml(p.link)}</a>` : '—';
           else if (Array.isArray(p[f.key]) && p[f.key].length) {
             val = '<table class="labeled-table">' +
               p[f.key].map(item =>
@@ -1169,7 +1169,7 @@
               '</table>';
           } else val = escHtml(p[f.key] || '—');
           const isMeta = f.key.startsWith('_');
-          html += `<td class="paper-cell${isMeta ? ' meta-cell' : ''}">${val}</td>`;
+          html += `<td class="dataset-cell${isMeta ? ' meta-cell' : ''}">${val}</td>`;
         });
         html += '</tr>';
       });
@@ -1184,7 +1184,7 @@
     }
     function truncate(s, n) { return s.length > n ? s.slice(0, n - 1) + '…' : s; }
 
-    loadPapers();
+    loadDatasets();
   </script>
 </body>
 

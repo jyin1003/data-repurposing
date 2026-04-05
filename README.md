@@ -1,19 +1,19 @@
-# Research Paper Collection
+# Research Dataset Collection
 
-A git-native research paper repository with a browser viewer, schema validation, and side-by-side comparison.
+A git-native research datasets repository with a browser viewer and schema validation.
 
 ## Repo structure
 
 ```
-├── index.html               ← open this to browse and compare papers
+├── index.html               ← open this to browse and compare datasets
 ├── validate.js              ← schema validator (runs before every commit)
-├── generate-manifest.js     ← rebuilds papers/papers-data.js
+├── generate-manifest.js     ← rebuilds datasets/datasets-data.js
 ├── setup.sh                 ← run once after cloning
-├── papers/
-│   ├── _template.json       ← copy this when adding a new paper
-│   ├── papers-data.js       ← auto-generated, DO NOT edit by hand
+├── datasets/
+│   ├── _template.json       ← copy this when adding a new dataset
+│   ├── datasets-data.js       ← auto-generated, DO NOT edit by hand
 │   ├── attention-is-all-you-need.json
-│   └── ...json (papers)
+│   └── ...json (datasets)
 ```
 
 ---
@@ -82,24 +82,24 @@ node --version
 ```sh
 git clone <your-repo-url>
 cd <repo>
-sh setup.sh      # installs git pre-commit hook + generates papers-data.js
+sh setup.sh      # installs git pre-commit hook + generates datasets-data.js
 ```
 
 Then open `index.html` directly in any browser — no server needed.
 
-## Adding a paper
+## Adding a dataset
 
 1. Copy the template:
    ```sh
-   cp papers/_template.json papers/your-paper-id.json
+   cp datasets/_template.json datasets/your-dataset-id.json
    ```
 
 2. Fill in the fields (see schema below).
 
 3. Commit — validation and manifest rebuild run automatically:
    ```sh
-   git add papers/your-paper-id.json
-   git commit -m "add: Your Paper Title"
+   git add datasets/your-dataset-id.json
+   git commit -m "add: Your Dataset Title"
    ```
 
    If the schema is invalid, the commit will be blocked with a clear error message.
@@ -109,17 +109,17 @@ Then open `index.html` directly in any browser — no server needed.
    git commit --no-verify -m "..."
    ```
 
-4. If you ever need to rebuild `papers-data.js` manually (e.g. after resolving a merge conflict):
+4. If you ever need to rebuild `datasets-data.js` manually (e.g. after resolving a merge conflict):
    ```sh
    node generate-manifest.js
    ```
 
-## Paper schema
+## Dataset schema
 
 | Field | Type | Required | Notes |
 |-------|------|----------|-------|
 | `id` | string | ✓ | Lowercase letters, numbers, hyphens. Must match filename. |
-| `title` | string | ✓ | Full paper title. |
+| `title` | string | ✓ | Full dataset title. |
 | `authors` | string[] | — | Array of author strings e.g. `"Last, F."` |
 | `year` | number | — | Publication year. |
 | `dataset_type` | string[] | — | Lowercase tags for filtering based on the type of datasets. |
@@ -136,10 +136,10 @@ You can add **custom fields** freely — the validator will warn but not block o
 
 Typical workflow for a new field
 
-1. Add the key to `papers/_template.json` so future papers include it by default
+1. Add the key to `datasets/_template.json` so future datasets include it by default
 2. Add it to `SCHEMA.fields` in `validate.js`
 3. Add it to `FIELDS` in `index.html`
-4. Backfill it into existing paper JSONs as needed
+4. Backfill it into existing dataset JSONs as needed
 
 Available options per field:
 | Option                          | What it does                                      |
@@ -162,13 +162,13 @@ Exit 0 = all valid. Exit 1 = errors found.
 
 ## Viewing the Repo
 
-1. Run node `generate-manifest.js` - this will update `papers/manifest.json` if you have addedd new papers
+1. Run node `generate-manifest.js` - this will update `datasets/manifest.json` if you have addedd new datasets
 2. Open `index.html` locally in your (VSC) IDE
 
 
 ## Viewer features
 
 - **Search** — searches titles, authors, tags, and all text fields
-- **Filter** — click any tag to filter the collection including `dataset_type`, `limitations` and `transformations`. Note this is an 'OR' filter which will return papers that match ANY of the filters
+- **Filter** — click any tag to filter the collection including `dataset_type`, `limitations` and `transformations`. Note this is an 'OR' filter which will return datasets that match ANY of the filters
 - **Sort** — by year (newest/oldest) or title
 - **Expand** — click a card to reveal all sections

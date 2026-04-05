@@ -2,7 +2,7 @@
 /**
  * validate.js
  * -----------
- * Validates every JSON file in ./papers/ against the paper schema.
+ * Validates every JSON file in ./datasets/ against the dataset schema.
  * Run manually:  node validate.js
  * Or via git hook (see .git/hooks/pre-push) it runs automatically before push.
  *
@@ -44,19 +44,19 @@ const c = {
 };
 
 // ── Validator ─────────────────────────────────────────────────────────────────
-function validatePaper(paper, filename) {
+function validateDataset(dataset, filename) {
   const errors = [];
   const warnings = [];
 
   // 1. File name should match id
-  const expectedFilename = paper.id + '.json';
-  if (paper.id && path.basename(filename) !== expectedFilename) {
-    warnings.push(`filename is "${path.basename(filename)}" but id is "${paper.id}" — expected filename "${expectedFilename}"`);
+  const expectedFilename = dataset.id + '.json';
+  if (dataset.id && path.basename(filename) !== expectedFilename) {
+    warnings.push(`filename is "${path.basename(filename)}" but id is "${dataset.id}" — expected filename "${expectedFilename}"`);
   }
 
   // 2. Check each defined field
   for (const [key, rules] of Object.entries(SCHEMA.fields)) {
-    const val = paper[key];
+    const val = dataset[key];
 
     if (val === undefined || val === null || val === '') {
       if (rules.required) errors.push(`"${key}" is required but missing`);
@@ -113,7 +113,7 @@ function validatePaper(paper, filename) {
   }
 
   // 3. Flag unknown fields
-  for (const key of Object.keys(paper)) {
+  for (const key of Object.keys(dataset)) {
     if (!SCHEMA.fields[key]) {
       warnings.push(`unknown field "${key}" — not in schema (this is allowed but worth checking)`);
     }
@@ -124,33 +124,33 @@ function validatePaper(paper, filename) {
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 function main() {
-  const papersDir = path.join(__dirname, 'papers');
+  const datasetsDir = path.join(__dirname, 'datasets');
 
-  if (!fs.existsSync(papersDir)) {
-    console.error(c.red('✗ papers/ directory not found. Run this script from the repo root.'));
+  if (!fs.existsSync(datasetsDir)) {
+    console.error(c.red('✗ datasets/ directory not found. Run this script from the repo root.'));
     process.exit(1);
   }
 
-  const files = fs.readdirSync(papersDir).filter(f => f.endsWith('.json') && !f.startsWith('_') && f !== 'manifest.json');
+  const files = fs.readdirSync(datasetsDir).filter(f => f.endsWith('.json') && !f.startsWith('_') && f !== 'manifest.json');
 
   if (!files.length) {
-    console.log(c.yellow('⚠ No JSON files found in papers/'));
+    console.log(c.yellow('⚠ No JSON files found in datasets/'));
     process.exit(0);
   }
 
-  console.log(c.bold(`\nValidating ${files.length} paper(s) in papers/\n`));
+  console.log(c.bold(`\nValidating ${files.length} dataset(s) in datasets/\n`));
 
   let totalErrors = 0;
   let totalWarnings = 0;
   const ids = new Set();
 
   for (const file of files) {
-    const filepath = path.join(papersDir, file);
-    let paper;
+    const filepath = path.join(datasetsDir, file);
+    let dataset;
 
     // Parse JSON
     try {
-      paper = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+      dataset = JSON.parse(fs.readFileSync(filepath, 'utf8'));
     } catch (e) {
       console.log(`  ${c.red('✗')} ${c.bold(file)}`);
       console.log(`      ${c.red('JSON parse error:')} ${e.message}\n`);
@@ -159,17 +159,17 @@ function main() {
     }
 
     // Check for duplicate ids
-    if (paper.id) {
-      if (ids.has(paper.id)) {
+    if (dataset.id) {
+      if (ids.has(dataset.id)) {
         console.log(`  ${c.red('✗')} ${c.bold(file)}`);
-        console.log(`      ${c.red('Duplicate id:')} "${paper.id}" already used by another file\n`);
+        console.log(`      ${c.red('Duplicate id:')} "${dataset.id}" already used by another file\n`);
         totalErrors++;
         continue;
       }
-      ids.add(paper.id);
+      ids.add(dataset.id);
     }
 
-    const { errors, warnings } = validatePaper(paper, filepath);
+    const { errors, warnings } = validateDataset(dataset, filepath);
 
     if (!errors.length && !warnings.length) {
       console.log(`  ${c.green('✓')} ${c.bold(file)}`);
@@ -188,7 +188,7 @@ function main() {
   console.log('');
 
   if (totalErrors === 0) {
-    console.log(c.green(c.bold(`✓ All papers valid.`)) + c.dim(` (${totalWarnings} warning(s))\n`));
+    console.log(c.green(c.bold(`✓ All datasets valid.`)) + c.dim(` (${totalWarnings} warning(s))\n`));
     process.exit(0);
   } else {
     console.log(c.red(c.bold(`✗ ${totalErrors} error(s), ${totalWarnings} warning(s). Fix errors before pushing.\n`)));

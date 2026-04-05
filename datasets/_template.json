@@ -1,6 +1,6 @@
 {
-  "id": "your-paper-slug",
-  "title": "Full Paper Title",
+  "id": "your-data-slug",
+  "title": "Dataset Title",
   "authors": [
     "Last, F.",
     "Last, F."
@@ -31,7 +31,7 @@
       "description": "What was the original intent?"
     }
   ],
-  "repurposed_use": "What does this paper do and why does it matter? Write 2-4 sentences.",
+  "repurposed_use": "What does this repurposed dataset do and why does it matter? Write 2-4 sentences.",
   "limitations": [
     {
       "label": "Limitation name",
@@ -44,5 +44,5 @@
       "description": "Describe the key operation, equation, or algorithmic step."
     }
   ],
-  "notes": "Related papers, personal observations."
+  "notes": "Related works, personal observations."
 }
