@@ -1,0 +1,58 @@
+{
+    "id": "nyc-311-rodent-sanitation-urban-inequality",
+    "title": "311 Service Requests from 2010 to Present",
+    "authors": [
+        "NYC Department of Information Technology and Telecommunications (DoITT)"
+    ],
+    "year": 2011,
+    "dataset_type": [
+        "demographic",
+        "geospatial"
+    ],
+    "link": "https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9",
+    "dataset_schema": [
+        {
+            "label": "311 Service Request Records",
+            "description": "One row per complaint. Key fields: unique key, created/closed date, agency, complaint type, descriptor, location type, borough, zip code, latitude, longitude, status."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "311 Service Requests",
+            "description": "Operational intake and routing of non-emergency resident complaints to city agencies. Designed for service delivery management and complaint resolution tracking."
+        }
+    ],
+    "repurposed_use": "Study urban rodent activity, sanitation equity, and COVID-19 effects on city services.",
+    "limitations": [
+        {
+            "label": "selection bias",
+            "description": "Only records complaints that were made. Neighbourhoods with language barriers or low civic trust systematically under-report problems, distorting spatial analysis."
+        },
+        {
+            "label": "omitted variables",
+            "description": "Raw complaint counts are not normalised by population density. High-density areas appear worse simply due to more residents, not worse conditions."
+        },
+        {
+            "label": "schema incompleteness",
+            "description": "Complaint type labels change over time and are not exhaustive. Longitudinal analysis requires manual label harmonisation across schema versions."
+        },
+        {
+            "label": "construct validity",
+            "description": "Correlations between sanitation complaints and rodent sightings cannot distinguish causation from shared underlying conditions or from co-reporting behaviour."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "filtering",
+            "description": "Rows subsetted by complaint type (e.g. 'Rodent', 'Dirty Condition') to isolate the domain of interest from the full multi-agency log."
+        },
+        {
+            "label": "temporal structuring",
+            "description": "Created Date parsed and aggregated to weekly/monthly counts to build time series, with COVID-19 (March 2020) flagged as a structural break."
+        },
+        {
+            "label": "join",
+            "description": "Latitude/longitude or zip code joined to census tract or community district boundaries to enable per-district rate calculations and choropleth mapping."
+        }
+    ]
+}
