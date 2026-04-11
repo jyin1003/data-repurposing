@@ -2,6 +2,50 @@
 // Run: node generate-manifest.js
 window.DATASETS_DATA = [
   {
+    "id": "riboseq-hek293t-f9-ribodoc-benchmarking",
+    "title": "Ribosome profiling of HEK293T cells overexpressing codon optimized coagulation factor IX",
+    "authors": [
+      "Alexaki, A.",
+      "Kames, J.",
+      "Kimchi-Sarfaty, C."
+    ],
+    "year": 2020,
+    "dataset_type": [
+      "machine learning",
+      "healthcare"
+    ],
+    "link": "https://doi.org/10.12688/f1000research.22400.2",
+    "dataset_schema": [
+      {
+        "label": "Ribo-seq reads",
+        "description": "FASTQ files of ribosome-protected mRNA fragments and captures where ribosomes sit on transcripts at codon resolution."
+      },
+      {
+        "label": "RNA-seq reads",
+        "description": "FASTQ files of total RNA from the same cell lines. Used to normalise ribosome occupancy against transcript abundance."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "Ribo-seq / RNA-seq",
+        "description": "Study how two versions of the blood-clotting gene F9 — identical in protein sequence but differing in DNA code — affect translation speed and protein shape in human cells."
+      }
+    ],
+    "repurposed_use": "Used this dataset to benchmark RiboDoc and served as a ground-truth reference for validating the new standardised pipeline for Ribo-seq analysis. This shifted dataset's purpose from biology to software validation.",
+    "limitations": [
+      {
+        "label": "granularity",
+        "description": "The dataset focuses on one gene (F9) in two variants. A single-gene benchmark may miss pipeline failure modes that only appear in genome-wide analyses."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "validation",
+        "description": "Spearman and Pearson correlations computed between replicates; PCA used to confirm experimental reproducibility before differential expression analysis."
+      }
+    ]
+  },
+  {
     "id": "ehr-biases-deficiencies",
     "title": "Biases in Electronic Health Records Data for Generating Real-World Evidence",
     "authors": [
@@ -423,6 +467,64 @@ window.DATASETS_DATA = [
       }
     ],
     "notes": "Illustrates reinterpretation of billing codes as behavioural signals of technology adoption and shift in unit of analysis from patient to organisation."
+  },
+  {
+    "id": "nyc-311-rodent-sanitation-urban-inequality",
+    "title": "311 Service Requests from 2010 to Present",
+    "authors": [
+      "NYC Department of Information Technology and Telecommunications (DoITT)"
+    ],
+    "year": 2011,
+    "dataset_type": [
+      "demographic",
+      "geospatial"
+    ],
+    "link": "https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9",
+    "dataset_schema": [
+      {
+        "label": "311 Service Request Records",
+        "description": "One row per complaint. Key fields: unique key, created/closed date, agency, complaint type, descriptor, location type, borough, zip code, latitude, longitude, status."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "311 Service Requests",
+        "description": "Operational intake and routing of non-emergency resident complaints to city agencies. Designed for service delivery management and complaint resolution tracking."
+      }
+    ],
+    "repurposed_use": "Study urban rodent activity, sanitation equity, and COVID-19 effects on city services.",
+    "limitations": [
+      {
+        "label": "selection bias",
+        "description": "Only records complaints that were made. Neighbourhoods with language barriers or low civic trust systematically under-report problems, distorting spatial analysis."
+      },
+      {
+        "label": "omitted variables",
+        "description": "Raw complaint counts are not normalised by population density. High-density areas appear worse simply due to more residents, not worse conditions."
+      },
+      {
+        "label": "schema incompleteness",
+        "description": "Complaint type labels change over time and are not exhaustive. Longitudinal analysis requires manual label harmonisation across schema versions."
+      },
+      {
+        "label": "construct validity",
+        "description": "Correlations between sanitation complaints and rodent sightings cannot distinguish causation from shared underlying conditions or from co-reporting behaviour."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "filtering",
+        "description": "Rows subsetted by complaint type (e.g. 'Rodent', 'Dirty Condition') to isolate the domain of interest from the full multi-agency log."
+      },
+      {
+        "label": "temporal structuring",
+        "description": "Created Date parsed and aggregated to weekly/monthly counts to build time series, with COVID-19 (March 2020) flagged as a structural break."
+      },
+      {
+        "label": "join",
+        "description": "Latitude/longitude or zip code joined to census tract or community district boundaries to enable per-district rate calculations and choropleth mapping."
+      }
+    ]
   },
   {
     "id": "understanding-and-improvin-data-repurposing",
