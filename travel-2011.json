@@ -1,0 +1,77 @@
+{
+    "id": "afc-smart-card-travel-behaviour-od",
+    "title": "Automated Fare Collection (AFC) Smart Card Transaction Data",
+    "authors": [
+        "Land Transport Authority, Singapore",
+        "Transport for London",
+        "Seoul Metropolitan Government",
+        "TransLink, Brisbane"
+    ],
+    "year": 2011,
+    "dataset_type": [
+        "geospatial",
+        "demographic"
+    ],
+    "link": "https://www.academia.edu/78297271/Use_of_Public_Transport_Smart_Card_Fare_Payment_Data_for_Travel_Behaviour_Analysis_in_Singapore",
+    "dataset_schema": [
+        {
+            "label": "AFC Transaction Records",
+            "description": "One row per tap event. Fields: anonymised card ID, boarding stop/station, alighting stop (only in closed systems), boarding timestamp, alighting timestamp, fare paid, route/line ID."
+        },
+        {
+            "label": "GTFS (General Transit Feed Specification)",
+            "description": "Timetable and network topology: stop locations (lat/lon), routes, schedules, headways."
+        },
+        {
+            "label": "AVL (Automatic Vehicle Location)",
+            "description": "Historical GPS positions of vehicles."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "AFC system",
+            "description": "Revenue collection, fare enforcement, blacklisting lost cards, financial settlement between operators, and ridership reporting. Schema reflects financial and ticketing needs, not travel behaviour research."
+        },
+        {
+            "label": "GTFS",
+            "description": "Published for third-party journey planning apps and regulatory reporting."
+        }
+    ],
+    "repurposed_use": "Replaces costly household travel surveys and studies the impact of fare changes or disruptions. Provides standard inputs to transit network planning and investment decisions.",
+    "limitations": [
+        {
+            "label": "schema incompleteness",
+            "description": "Boarding-only systems (most buses, NYC subway) do not record alighting. Destination must be inferred via trip-chaining, achieving only ~70-75% accuracy for irregular travellers."
+        },
+        {
+            "label": "omitted variables",
+            "description": "No trip purpose, age, income, or disability status. All sociodemographic and behavioural context must be inferred indirectly or supplemented with survey data."
+        },
+        {
+            "label": "temporal instability",
+            "description": "Fare structures, route IDs, and card hashing conventions change over time. Longitudinal analysis requires careful schema harmonisation, especially after network reforms."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "feature engineering",
+            "description": "Alighting stop inferred for boarding-only systems via trip-chaining"
+        },
+        {
+            "label": "data integration",
+            "description": "AFC stop IDs joined to GTFS stops.txt to assign lat/lon coordinates, enabling spatial aggregation to zones or traffic analysis areas for OD matrix construction."
+        },
+        {
+            "label": "aggregation",
+            "description": "Inferred trip origins and destinations aggregated from card level to zone-pair counts."
+        },
+        {
+            "label": "discretisation",
+            "description": "Boarding timestamps classified into time-of-day periods (AM peak, inter-peak, PM peak, off-peak) and days of week to enable temporal segmentation of travel patterns."
+        },
+        {
+            "label": "normalisation",
+            "description": "Card-level trip frequencies normalised across observation periods to distinguish regular commuters from occasional or irregular users before clustering."
+        }
+    ]
+}
