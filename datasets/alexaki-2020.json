@@ -1,0 +1,44 @@
+{
+    "id": "riboseq-hek293t-f9-ribodoc-benchmarking",
+    "title": "Ribosome profiling of HEK293T cells overexpressing codon optimized coagulation factor IX",
+    "authors": [
+        "Alexaki, A.",
+        "Kames, J.",
+        "Kimchi-Sarfaty, C."
+    ],
+    "year": 2020,
+    "dataset_type": [
+        "machine learning",
+        "healthcare"
+    ],
+    "link": "https://doi.org/10.12688/f1000research.22400.2",
+    "dataset_schema": [
+        {
+            "label": "Ribo-seq reads",
+            "description": "FASTQ files of ribosome-protected mRNA fragments and captures where ribosomes sit on transcripts at codon resolution."
+        },
+        {
+            "label": "RNA-seq reads",
+            "description": "FASTQ files of total RNA from the same cell lines. Used to normalise ribosome occupancy against transcript abundance."
+        }
+    ],
+    "original_intent": [
+        {
+            "label": "Ribo-seq / RNA-seq",
+            "description": "Study how two versions of the blood-clotting gene F9 — identical in protein sequence but differing in DNA code — affect translation speed and protein shape in human cells."
+        }
+    ],
+    "repurposed_use": "Used this dataset to benchmark RiboDoc and served as a ground-truth reference for validating the new standardised pipeline for Ribo-seq analysis. This shifted dataset's purpose from biology to software validation.",
+    "limitations": [
+        {
+            "label": "granularity",
+            "description": "The dataset focuses on one gene (F9) in two variants. A single-gene benchmark may miss pipeline failure modes that only appear in genome-wide analyses."
+        }
+    ],
+    "transformations": [
+        {
+            "label": "validation",
+            "description": "Spearman and Pearson correlations computed between replicates; PCA used to confirm experimental reproducibility before differential expression analysis."
+        }
+    ]
+}
