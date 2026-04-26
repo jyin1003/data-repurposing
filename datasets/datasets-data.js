@@ -655,5 +655,71 @@ window.DATASETS_DATA = [
       }
     ],
     "notes": "Highlights platform dependency and how governance changes can disrupt data repurposing ecosystems."
+  },
+  {
+    "id": "healthcare-ai-preprocessing-framework",
+    "title": "Advanced AI Algorithms for Automating Data Preprocessing in Healthcare",
+    "authors": [
+      "Sivathapandi, P.",
+      "Krishnaswamy, P.",
+      "Muthusubramanian, M."
+    ],
+    "year": 2022,
+    "dataset_type": [
+      "Electronic Health Records (EHR)",
+      "Medical Imaging",
+      "Genomic Sequences"
+    ],
+    "link": "https://philarchive.org/archive/PRAAAA-10",
+    "dataset_schema": [
+      {
+        "label": "Structured EHR Data",
+        "description": "Numerical values and categorical variables found in clinical histories and laboratory results."
+      },
+      {
+        "label": "Unstructured Clinical Narratives",
+        "description": "Clinical narratives, diagnostic reports, and radiological images provided in free-text or binary formats."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "Clinical Documentation",
+        "description": "Recording patient histories, clinical observations, and diagnostic imaging for active medical treatment."
+      },
+      {
+        "label": "Administrative Monitoring",
+        "description": "Capturing patient interactions and sensor data from medical devices for hospital operations and real-time monitoring."
+      }
+    ],
+    "repurposed_use": "This repurposed data is utilised to train advanced predictive and diagnostic machine learning models, such as patient risk stratification and disease susceptibility forecasts. It matters because it allows healthcare organizations to transform static medical records into dynamic insights that improve clinical decision-making and patient outcomes.",
+    "limitations": [
+      {
+        "label": "Interpretability and Transparency",
+        "description": "The 'black box' nature of complex deep learning algorithms makes it difficult for clinicians to trust and validate the resulting recommendations."
+      },
+      {
+        "label": "Systemic Bias",
+        "description": "AI models risk propagating or amplifying historical biases if the training data is not representative of a diverse patient population."
+      },
+      {
+        "label": "Privacy and Security Risks",
+        "description": "Repurposing vast amounts of personal health information increases the risk of data breaches and necessitates strict adherence to HIPAA compliance."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "Automated Imputation",
+        "description": "Supervised learning models (e.g., SVMs) predict missing values by leveraging statistical relationships between variables."
+      },
+      {
+        "label": "NLP Named Entity Recognition",
+        "description": "Natural Language Processing extracts structured entities like medications and diagnoses from unstructured textual narratives."
+      },
+      {
+        "label": "Normalization and Scaling",
+        "description": "Scaling features to common ranges (e.g.,) to facilitate comparability and interpretability across diverse datasets."
+      }
+    ],
+    "notes": "The research advocates for a cohesive framework that integrates multiple preprocessing functionalities into an end-to-end automated pipeline. It highlights that AI-driven preprocessing can reduce data preparation time by up to 70%."
   }
 ];
