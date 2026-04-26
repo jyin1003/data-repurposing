@@ -142,7 +142,8 @@ function main() {
 
   let totalErrors = 0;
   let totalWarnings = 0;
-  const ids = new Set();
+  const ids = new Map();
+  const titles = new Map();
 
   for (const file of files) {
     const filepath = path.join(datasetsDir, file);
@@ -158,7 +159,7 @@ function main() {
       continue;
     }
 
-    // Check for duplicate ids
+    // Check for duplicate ids, titles
     if (dataset.id) {
       if (ids.has(dataset.id)) {
         console.log(`  ${c.red('✗')} ${c.bold(file)}`);
@@ -166,8 +167,22 @@ function main() {
         totalErrors++;
         continue;
       }
-      ids.add(dataset.id);
+      ids.set(dataset.id, file);
     }
+    if (dataset.title) {
+      const normalizedTitle = dataset.title.trim().toLowerCase(); // normalize for duplicate checking (ignore case and surrounding whitespace)
+    
+      if (titles.has(normalizedTitle)) {
+        console.log(`  ${c.red('✗')} ${c.bold(file)}`);
+        console.log(
+          `      ${c.red('Duplicate title:')} "${dataset.title}" already used in "${titles.get(normalizedTitle)}"\n`
+        );
+        totalErrors++;
+        continue;
+      }
+      titles.set(normalizedTitle, file);
+    }
+
 
     const { errors, warnings } = validateDataset(dataset, filepath);
 
