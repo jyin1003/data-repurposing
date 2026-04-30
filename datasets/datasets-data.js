@@ -268,54 +268,6 @@ window.DATASETS_DATA = [
     "notes": "Demonstrates how administrative healthcare data can be repurposed for innovation diffusion research. Highlights the need for proxy variables when key constructs are unobserved and the importance of linking multi-level datasets (patient, physician, hospital)."
   },
   {
-    "id": "overview-data-quality-frameworks",
-    "title": "An Overview of Data Quality Frameworks",
-    "authors": [
-      "Riedel (Cichy), C.",
-      "Rass, S."
-    ],
-    "year": 2019,
-    "dataset_topic": [
-      "Data Quality Frameworks",
-      "Methodological Survey"
-    ],
-    "link": "https://doi.org/10.1109/ACCESS.2019.2899751",
-    "dataset_schema": [
-      {
-        "label": "Framework Components",
-        "description": "Earlier work focuses on defining frameworks through dimensions, attributes, and measures to improve quality in database and information systems [1]."
-      }
-    ],
-    "original_intent": [
-      {
-        "label": "Methodological Survey",
-        "description": "To survey data quality frameworks in a comparative way regarding the definition, assessment, and improvement of data quality [2]."
-      },
-      {
-        "label": "Decision Support",
-        "description": "To provide a decision guide that helps organizations narrow down suitable data quality methodologies based on specified criteria [2]."
-      }
-    ],
-    "repurposed_use": "The frameworks discussed are repurposed as a decision guide to assist organizations in maintaining high standards for data as a valuable asset across diverse business environments [2]. This matters because it addresses the challenge of choosing suitable methods when requirements for data quality vary significantly between organizations [2].",
-    "limitations": [
-      {
-        "label": "Domain-Specific Constraints",
-        "description": "Many existing approaches are validated on simplified or domain-specific datasets, which limits their applicability to complex, real-world environments [as noted in conversation history regarding the article]."
-      },
-      {
-        "label": "Implementation Complexity",
-        "description": "Choosing suitable methods can be challenging due to the variety of requirements across different organizational contexts [2]."
-      }
-    ],
-    "transformations": [
-      {
-        "label": "DQ Framework Decision Guide",
-        "description": "A comparative methodology used to narrow down possible choices for data quality frameworks based on specified organizational criteria [2]."
-      }
-    ],
-    "notes": "The article surveys 116 references and provides a multidimensional view of project quality performance, citing support from ISO 9001 measurement structures [2, 3]."
-  },
-  {
     "id": "ml-poverty-mapping",
     "title": "Poverty Mapping in the Age of Machine Learning",
     "authors": [
@@ -515,6 +467,78 @@ window.DATASETS_DATA = [
       }
     ],
     "notes": "Illustrates reinterpretation of billing codes as behavioural signals of technology adoption and shift in unit of analysis from patient to organisation."
+  },
+  {
+    "id": "archaide-roman-amphorae-ai-pottery-recognition",
+    "title": "Roman Amphorae: a digital resource",
+    "authors": [
+      "Keay, S.",
+      "Williams, D."
+    ],
+    "year": 2005,
+    "dataset_topic": [
+      "machine learning",
+      "geospatial"
+    ],
+    "link": "https://doi.org/10.5284/1028192",
+    "dataset_schema": [
+      {
+        "label": "ADS Roman Amphorae Typological Archive",
+        "description": "Structured catalogue of Roman amphora types (3rd c. BCE - 7th c. CE). Fields: type/variant ID, fabric, provenance, date range, morphological description, stamps, references, and scanned 2D profile drawings. Open access via Archaeology Data Service, University of York."
+      },
+      {
+        "label": "ArchAIDE Reference Database (derived)",
+        "description": "Harmonised version of the ADS archive, merged with CERAMALEX (German/French excavations in Alexandria). Schema normalised to a common core: type ID, pottery class, shape/decoration attributes, multilingual vocabularies, 2D SVG drawings, and 3D OBJ models."
+      },
+      {
+        "label": "Training image dataset (derived)",
+        "description": "Photographs from museum and excavation campaigns across Europe, augmented by synthetic 'virtual sherds' generated from 3D models."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "ADS Roman Amphorae archive",
+        "description": "A reference catalogue for human specialists to consult when identifying amphorae during excavation. Designed for scholarly lookup and citation."
+      }
+    ],
+    "repurposed_use": "The ADS archive is repurposed as training data for two machine learning classifiers: a shape-based deep learning model and a decoration-based CNN. The resulting mobile app lets field archaeologists photograph a potsherd and receive an AI typological identification in seconds, replacing hours of manual catalogue work.",
+    "limitations": [
+      {
+        "label": "selection bias",
+        "description": "Common amphora types have far more training images than rare ones, causing the classifier to systematically underperform on rare classes."
+      },
+      {
+        "label": "documentation bias",
+        "description": "Profile drawings were designed for human visual interpretation following archaeological illustration conventions — not as machine-readable geometry. Automated vectorisation introduced errors requiring manual correction."
+      },
+      {
+        "label": "schema incompleteness",
+        "description": "Integrating the ADS archive with CERAMALEX required complex schema mapping; the two databases had different conceptual architectures. Many paper catalogues could not be included due to copyright restrictions."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "feature engineering",
+        "description": "Scanned raster profile drawings converted to SVG vector format, separating semantic elements (exterior profile, interior, handles, neck) from background using image processing developed by CNR-ISTI."
+      },
+      {
+        "label": "data integration",
+        "description": "ADS archive and CERAMALEX merged into a single reference database via schema normalisation, field mapping, and multilingual vocabulary alignment."
+      },
+      {
+        "label": "aggregation",
+        "description": "SVG profiles used to generate 3D scale models (OBJ format) via surface-of-revolution, then broken into synthetic 'virtual sherds' to simulate fragmentary real-world finds and increase training data volume."
+      },
+      {
+        "label": "validation",
+        "description": "Classifier performance evaluated against held-out real sherd outlines traced from photographs at archaeological warehouses, keeping synthetic and real-world test sets strictly separated to avoid overfitting."
+      },
+      {
+        "label": "bias correction",
+        "description": "Class-weighted training applied to address imbalance between common and rare amphora types, simulating a more even distribution during model training."
+      }
+    ],
+    "notes": "The archive's open licence was a necessary condition for this repurposing. The 2D/3D models generated by ArchAIDE were deposited back into the ADS, enriching the original archive. This case of repurposing improved the source dataset."
   },
   {
     "id": "nyc-311-rodent-sanitation-urban-inequality",
@@ -769,5 +793,82 @@ window.DATASETS_DATA = [
       }
     ],
     "notes": "The research advocates for a cohesive framework that integrates multiple preprocessing functionalities into an end-to-end automated pipeline. It highlights that AI-driven preprocessing can reduce data preparation time by up to 70%."
+  },
+  {
+    "id": "afc-smart-card-travel-behaviour-od",
+    "title": "Automated Fare Collection (AFC) Smart Card Transaction Data",
+    "authors": [
+      "Land Transport Authority, Singapore",
+      "Transport for London",
+      "Seoul Metropolitan Government",
+      "TransLink, Brisbane"
+    ],
+    "year": 2011,
+    "dataset_topic": [
+      "geospatial",
+      "demographic"
+    ],
+    "link": "https://www.academia.edu/78297271/Use_of_Public_Transport_Smart_Card_Fare_Payment_Data_for_Travel_Behaviour_Analysis_in_Singapore",
+    "dataset_schema": [
+      {
+        "label": "AFC Transaction Records",
+        "description": "One row per tap event. Fields: anonymised card ID, boarding stop/station, alighting stop (only in closed systems), boarding timestamp, alighting timestamp, fare paid, route/line ID."
+      },
+      {
+        "label": "GTFS (General Transit Feed Specification)",
+        "description": "Timetable and network topology: stop locations (lat/lon), routes, schedules, headways."
+      },
+      {
+        "label": "AVL (Automatic Vehicle Location)",
+        "description": "Historical GPS positions of vehicles."
+      }
+    ],
+    "original_intent": [
+      {
+        "label": "AFC system",
+        "description": "Revenue collection, fare enforcement, blacklisting lost cards, financial settlement between operators, and ridership reporting. Schema reflects financial and ticketing needs, not travel behaviour research."
+      },
+      {
+        "label": "GTFS",
+        "description": "Published for third-party journey planning apps and regulatory reporting."
+      }
+    ],
+    "repurposed_use": "Replaces costly household travel surveys and studies the impact of fare changes or disruptions. Provides standard inputs to transit network planning and investment decisions.",
+    "limitations": [
+      {
+        "label": "schema incompleteness",
+        "description": "Boarding-only systems (most buses, NYC subway) do not record alighting. Destination must be inferred via trip-chaining, achieving only ~70-75% accuracy for irregular travellers."
+      },
+      {
+        "label": "omitted variables",
+        "description": "No trip purpose, age, income, or disability status. All sociodemographic and behavioural context must be inferred indirectly or supplemented with survey data."
+      },
+      {
+        "label": "temporal instability",
+        "description": "Fare structures, route IDs, and card hashing conventions change over time. Longitudinal analysis requires careful schema harmonisation, especially after network reforms."
+      }
+    ],
+    "transformations": [
+      {
+        "label": "feature engineering",
+        "description": "Alighting stop inferred for boarding-only systems via trip-chaining"
+      },
+      {
+        "label": "data integration",
+        "description": "AFC stop IDs joined to GTFS stops.txt to assign lat/lon coordinates, enabling spatial aggregation to zones or traffic analysis areas for OD matrix construction."
+      },
+      {
+        "label": "aggregation",
+        "description": "Inferred trip origins and destinations aggregated from card level to zone-pair counts."
+      },
+      {
+        "label": "discretisation",
+        "description": "Boarding timestamps classified into time-of-day periods (AM peak, inter-peak, PM peak, off-peak) and days of week to enable temporal segmentation of travel patterns."
+      },
+      {
+        "label": "normalisation",
+        "description": "Card-level trip frequencies normalised across observation periods to distinguish regular commuters from occasional or irregular users before clustering."
+      }
+    ]
   }
 ];
