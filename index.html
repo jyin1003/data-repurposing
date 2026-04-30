@@ -808,8 +808,8 @@
   </div>
 
   <div id="filter-bar">
-    <div class="filter-row" id="filter-dataset_type">
-      <span class="filter-row-label">Dataset type</span>
+    <div class="filter-row" id="filter-dataset_topic">
+      <span class="filter-row-label">Dataset topic</span>
       <div class="filter-pills"></div>
     </div>
     <div class="filter-row" id="filter-limitations">
@@ -865,7 +865,7 @@
 
     const META_FIELDS = [
       { key: '_authors', label: 'Authors' },
-      { key: '_dataset_type', label: 'Dataset Type' },
+      { key: '_dataset_topic', label: 'Dataset Topic' },
       { key: '_link', label: 'Link' },
     ];
 
@@ -873,7 +873,7 @@
     let datasets = [];
     // activeFilters: set of values currently selected per category
     const activeFilters = {
-      dataset_type: new Set(),
+      dataset_topic: new Set(),
       limitations: new Set(),
       transformations: new Set(),
     };
@@ -900,7 +900,7 @@
     function render() {
       const sortVal = document.getElementById('sort').value;
       // Build active filter sets
-      const f_dt = activeFilters.dataset_type;
+      const f_dt = activeFilters.dataset_topic;
       const f_lim = activeFilters.limitations;
       const f_tr = activeFilters.transformations;
       const anyFilters = f_dt.size || f_lim.size || f_tr.size;
@@ -908,7 +908,7 @@
       let list = datasets.filter(p => {
         // ── Filter logic: OR across all three categories ──
         if (anyFilters) {
-          const matchDT = f_dt.size && (p.dataset_type || []).some(t => f_dt.has(t.toLowerCase()));
+          const matchDT = f_dt.size && (p.dataset_topic || []).some(t => f_dt.has(t.toLowerCase()));
           const matchLim = f_lim.size && (p.limitations || []).some(item => f_lim.has(item.label.toLowerCase()));
           const matchTr = f_tr.size && (p.transformations || []).some(item => f_tr.has(item.label.toLowerCase()));
           if (!matchDT && !matchLim && !matchTr) return false;
@@ -919,7 +919,7 @@
         if (!q) return true;
         return p.title.toLowerCase().includes(q)
           || (p.authors || []).join(' ').toLowerCase().includes(q)
-          || (p.dataset_type || []).join(' ').toLowerCase().includes(q)
+          || (p.dataset_topic || []).join(' ').toLowerCase().includes(q)
           || FIELDS.some(f => {
             const v = p[f.key];
             if (!v) return false;
@@ -944,8 +944,8 @@
     }
 
     function renderFilterBar() {
-      // dataset_type — from array of strings
-      const dtVals = [...new Set(datasets.flatMap(p => (p.dataset_type || []).map(t => t.toLowerCase())))].sort();
+      // dataset_topic — from array of strings
+      const dtVals = [...new Set(datasets.flatMap(p => (p.dataset_topic || []).map(t => t.toLowerCase())))].sort();
       // limitations labels
       const limVals = [...new Set(datasets.flatMap(p => (p.limitations || []).map(item => item.label.toLowerCase())))].sort();
       // transformations labels
@@ -958,7 +958,7 @@
         }).join('');
       }
 
-      document.querySelector('#filter-dataset_type .filter-pills').innerHTML = pillsHtml(dtVals, 'dataset_type');
+      document.querySelector('#filter-dataset_topic .filter-pills').innerHTML = pillsHtml(dtVals, 'dataset_topic');
       document.querySelector('#filter-limitations .filter-pills').innerHTML = pillsHtml(limVals, 'limitations');
       document.querySelector('#filter-transformations .filter-pills').innerHTML = pillsHtml(trVals, 'transformations');
     }
@@ -992,7 +992,7 @@
         </div>`;
           }).join('');
 
-        const datasetTypes = (p.dataset_type || []).map(t => `<span class="dataset-type-pill">${escHtml(t)}</span>`).join('');
+        const datasetTypes = (p.dataset_topic || []).map(t => `<span class="dataset-type-pill">${escHtml(t)}</span>`).join('');
         const link = p.link
           ? `<a class="dataset-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">source →</a>`
           : '<span></span>';
@@ -1159,7 +1159,7 @@
         selectedDatasets.forEach(p => {
           let val = '';
           if (f.key === '_authors') val = (p.authors || []).join(', ') || '—';
-          else if (f.key === '_dataset_type') val = (p.dataset_type || []).join(', ') || '—';
+          else if (f.key === '_dataset_topic') val = (p.dataset_topic || []).join(', ') || '—';
           else if (f.key === '_link') val = p.link ? `<a class="dataset-link" href="${escHtml(p.link)}" target="_blank" rel="noopener">${escHtml(p.link)}</a>` : '—';
           else if (Array.isArray(p[f.key]) && p[f.key].length) {
             val = '<table class="labeled-table">' +

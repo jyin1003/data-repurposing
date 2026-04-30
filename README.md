@@ -122,7 +122,7 @@ Then open `index.html` directly in any browser — no server needed.
 | `title` | string | ✓ | Full dataset title. |
 | `authors` | string[] | — | Array of author strings e.g. `"Last, F."` |
 | `year` | number | — | Publication year. |
-| `dataset_type` | string[] | — | Lowercase tags for filtering based on the type of datasets. |
+| `dataset_topic` | string[] | — | Lowercase tags for filtering based on the type of datasets. |
 | `link` | string | — | Must start with `http://` or `https://` |
 | `dataset_schema` | labeled_array | — | The dataset/s being repurposed and their schema/s. |
 | `original_intent` | labeled_array | — | The original intent of the dataset/s. |
@@ -169,6 +169,6 @@ Exit 0 = all valid. Exit 1 = errors found.
 ## Viewer features
 
 - **Search** — searches titles, authors, tags, and all text fields
-- **Filter** — click any tag to filter the collection including `dataset_type`, `limitations` and `transformations`. Note this is an 'OR' filter which will return datasets that match ANY of the filters
+- **Filter** — click any tag to filter the collection including `dataset_topic`, `limitations` and `transformations`. Note this is an 'OR' filter which will return datasets that match ANY of the filters
 - **Sort** — by year (newest/oldest) or title
 - **Expand** — click a card to reveal all sections

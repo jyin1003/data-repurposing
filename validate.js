@@ -20,7 +20,7 @@ const SCHEMA = {
     title: { type: 'string', required: true },
     authors: { type: 'array', items: 'string' },
     year: { type: 'number', min: 1900, max: new Date().getFullYear() + 1 },
-    dataset_type: { type: 'array', items: 'string' },
+    dataset_topic: { type: 'array', items: 'string' },
     link: { type: 'string', pattern: /^https?:\/\//, hint: 'must be a valid URL starting with http:// or https://' },
     dataset_schema: { type: 'labeled_array' },
     original_intent: { type: 'labeled_array' },
@@ -171,7 +171,7 @@ function main() {
     }
     if (dataset.title) {
       const normalizedTitle = dataset.title.trim().toLowerCase(); // normalize for duplicate checking (ignore case and surrounding whitespace)
-    
+
       if (titles.has(normalizedTitle)) {
         console.log(`  ${c.red('✗')} ${c.bold(file)}`);
         console.log(

@@ -6,9 +6,9 @@
     "Last, F."
   ],
   "year": 2024,
-  "dataset_type": [
-    "dataset_type-one",
-    "dataset_type-two"
+  "dataset_topic": [
+    "dataset_topic-one",
+    "dataset_topic-two"
   ],
   "link": "https://arxiv.org/abs/xxxx.xxxxx",
   "dataset_schema": [

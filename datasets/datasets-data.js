@@ -10,7 +10,7 @@ window.DATASETS_DATA = [
       "Kimchi-Sarfaty, C."
     ],
     "year": 2020,
-    "dataset_type": [
+    "dataset_topic": [
       "machine learning",
       "healthcare"
     ],
@@ -56,7 +56,7 @@ window.DATASETS_DATA = [
       "Zhang, B."
     ],
     "year": 2024,
-    "dataset_type": [
+    "dataset_topic": [
       "Healthcare"
     ],
     "link": "https://doi.org/10.1007/s41666-023-00153-2",
@@ -127,7 +127,7 @@ window.DATASETS_DATA = [
       "Watts, D. J."
     ],
     "year": 2024,
-    "dataset_type": [
+    "dataset_topic": [
       "Geospatial",
       "Demographic"
     ],
@@ -196,7 +196,7 @@ window.DATASETS_DATA = [
       "Prasad, K."
     ],
     "year": 2007,
-    "dataset_type": [
+    "dataset_topic": [
       "Healthcare"
     ],
     "link": "https://doi.org/10.1287/mnsc.2015.2232",
@@ -275,7 +275,7 @@ window.DATASETS_DATA = [
       "Rass, S."
     ],
     "year": 2019,
-    "dataset_type": [
+    "dataset_topic": [
       "Data Quality Frameworks",
       "Methodological Survey"
     ],
@@ -324,7 +324,7 @@ window.DATASETS_DATA = [
       "Segovia, S."
     ],
     "year": 2025,
-    "dataset_type": [
+    "dataset_topic": [
       "Demographic",
       "Geospatial"
     ],
@@ -390,7 +390,7 @@ window.DATASETS_DATA = [
       "Susto, G. A."
     ],
     "year": 2022,
-    "dataset_type": [
+    "dataset_topic": [
       "Demographic",
       "Criminal Justice",
       "Machine Learning"
@@ -457,7 +457,7 @@ window.DATASETS_DATA = [
       "Gopal, A."
     ],
     "year": 2017,
-    "dataset_type": [
+    "dataset_topic": [
       "Healthcare"
     ],
     "link": "http://www.jstor.org/stable/45149123",
@@ -523,7 +523,7 @@ window.DATASETS_DATA = [
       "NYC Department of Information Technology and Telecommunications (DoITT)"
     ],
     "year": 2011,
-    "dataset_type": [
+    "dataset_topic": [
       "demographic",
       "geospatial"
     ],
@@ -584,7 +584,7 @@ window.DATASETS_DATA = [
       "Cooper, C. B."
     ],
     "year": 2026,
-    "dataset_type": [
+    "dataset_topic": [
       "Geospatial",
       "Bird Watching"
     ],
@@ -644,7 +644,7 @@ window.DATASETS_DATA = [
       "Shabrina, Z."
     ],
     "year": 2023,
-    "dataset_type": [
+    "dataset_topic": [
       "Social Media",
       "Healthcare"
     ],
@@ -713,7 +713,7 @@ window.DATASETS_DATA = [
       "Muthusubramanian, M."
     ],
     "year": 2022,
-    "dataset_type": [
+    "dataset_topic": [
       "Electronic Health Records (EHR)",
       "Medical Imaging",
       "Genomic Sequences"

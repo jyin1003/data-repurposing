@@ -1,4 +1,3 @@
-
 {
   "id": "healthcare-ai-preprocessing-framework",
   "title": "Advanced AI Algorithms for Automating Data Preprocessing in Healthcare",
@@ -8,7 +7,7 @@
     "Muthusubramanian, M."
   ],
   "year": 2022,
-  "dataset_type": [
+  "dataset_topic": [
     "Electronic Health Records (EHR)",
     "Medical Imaging",
     "Genomic Sequences"
