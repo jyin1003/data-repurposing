@@ -114,6 +114,56 @@ Then open `index.html` directly in any browser — no server needed.
    node generate-manifest.js
    ```
 
+## Existing topics, limitations and transformations
+The following are listed in descending order of frequency in existing datasets.
+### Topics
+
+- Geospatial
+- Healthcare
+- Demographic
+- Machine Learning
+- Criminal Justice
+- Bird Watching
+- Social Media
+- Electronic Health Records (EHR)
+- Medical Imaging
+- Genomic Sequences
+
+### Limitations
+
+- Selection Bias
+- Granularity
+- Temporal Instability
+- Schema Incompleteness
+- Construct Validity
+- Information Bias
+- Privacy/Ethical/Security Risk
+- Omitted Variables
+- Documentation Bias
+- Transparency
+- Longitudinal (Time) Tracking
+- Accessibility
+- Geographic Coverage
+- Intra-data Inconsistenty
+- Systemic Bias
+
+### Transformations
+
+- Feature Engineering
+- Data Integration
+- Filtering
+- Aggregation
+- Validation
+- NLP
+- Normalisation
+- Imputation
+- Reweighting
+- Discretisation
+- Bias Correction
+- Temporal Structuring
+- Join
+- Privacy Preservation
+
 ## Dataset schema
 
 | Field | Type | Required | Notes |
