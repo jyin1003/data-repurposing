@@ -101,7 +101,7 @@ window.DATASETS_DATA = [
     ],
     "transformations": [
       {
-        "label": "NLP Processing",
+        "label": "NLP",
         "description": "Extract structured information from clinical notes."
       },
       {
@@ -163,7 +163,7 @@ window.DATASETS_DATA = [
         "description": "Aggregation to census level removes within-area variation."
       },
       {
-        "label": "Privacy and Ethical Risk",
+        "label": "Privacy/Ethical/Security Risk",
         "description": "Re-identification risk despite anonymisation."
       }
     ],
@@ -243,7 +243,7 @@ window.DATASETS_DATA = [
         "description": "Missing factors such as hospital culture and selection effects may bias results."
       },
       {
-        "label": "Privacy and Ethical Risk",
+        "label": "Privacy/Ethical/Security Risk",
         "description": "Linking datasets and potential augmentation (e.g., with social or environmental data) raises consent and privacy concerns."
       }
     ],
@@ -714,7 +714,7 @@ window.DATASETS_DATA = [
         "description": "Remove bots and duplicate content."
       },
       {
-        "label": "NLP Processing",
+        "label": "NLP",
         "description": "Tokenisation, slang normalisation, emoji conversion."
       },
       {
@@ -766,7 +766,7 @@ window.DATASETS_DATA = [
     "repurposed_use": "This repurposed data is utilised to train advanced predictive and diagnostic machine learning models, such as patient risk stratification and disease susceptibility forecasts. It matters because it allows healthcare organizations to transform static medical records into dynamic insights that improve clinical decision-making and patient outcomes.",
     "limitations": [
       {
-        "label": "Interpretability and Transparency",
+        "label": "Transparency",
         "description": "The 'black box' nature of complex deep learning algorithms makes it difficult for clinicians to trust and validate the resulting recommendations."
       },
       {
@@ -774,21 +774,21 @@ window.DATASETS_DATA = [
         "description": "AI models risk propagating or amplifying historical biases if the training data is not representative of a diverse patient population."
       },
       {
-        "label": "Privacy and Security Risks",
+        "label": "Privacy/Ethical/Security Risk",
         "description": "Repurposing vast amounts of personal health information increases the risk of data breaches and necessitates strict adherence to HIPAA compliance."
       }
     ],
     "transformations": [
       {
-        "label": "Automated Imputation",
+        "label": "Imputation",
         "description": "Supervised learning models (e.g., SVMs) predict missing values by leveraging statistical relationships between variables."
       },
       {
-        "label": "NLP Named Entity Recognition",
+        "label": "NLP",
         "description": "Natural Language Processing extracts structured entities like medications and diagnoses from unstructured textual narratives."
       },
       {
-        "label": "Normalization and Scaling",
+        "label": "Normalisation",
         "description": "Scaling features to common ranges (e.g.,) to facilitate comparability and interpretability across diverse datasets."
       }
     ],

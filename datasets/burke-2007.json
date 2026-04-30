@@ -54,7 +54,7 @@
             "description": "Missing factors such as hospital culture and selection effects may bias results."
         },
         {
-            "label": "Privacy and Ethical Risk",
+            "label": "Privacy/Ethical/Security Risk",
             "description": "Linking datasets and potential augmentation (e.g., with social or environmental data) raises consent and privacy concerns."
         }
     ],

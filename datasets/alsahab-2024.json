@@ -54,7 +54,7 @@
     ],
     "transformations": [
         {
-            "label": "NLP Processing",
+            "label": "NLP",
             "description": "Extract structured information from clinical notes."
         },
         {

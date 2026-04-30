@@ -52,7 +52,7 @@
             "description": "Remove bots and duplicate content."
         },
         {
-            "label": "NLP Processing",
+            "label": "NLP",
             "description": "Tokenisation, slang normalisation, emoji conversion."
         },
         {

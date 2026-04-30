@@ -42,7 +42,7 @@
             "description": "Aggregation to census level removes within-area variation."
         },
         {
-            "label": "Privacy and Ethical Risk",
+            "label": "Privacy/Ethical/Security Risk",
             "description": "Re-identification risk despite anonymisation."
         }
     ],
